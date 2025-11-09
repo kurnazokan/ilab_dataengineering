@@ -1,0 +1,58 @@
+version: 2
+
+sources:
+  - name: public
+    database: ecommerce
+    schema: public
+    tables:
+      - name: orders
+        description: "E-ticaret sipariş verileri"
+        columns:
+          - name: order_id
+            description: "Benzersiz sipariş numarası"
+            tests:
+              - unique
+              - not_null
+          - name: customer_id
+            description: "Müşteri ID"
+          - name: product_id
+            description: "Ürün ID"
+          - name: order_date
+            description: "Sipariş tarihi"
+          - name: total_amount
+            description: "Toplam tutar"
+      
+      - name: products
+        description: "Ürün bilgileri"
+        columns:
+          - name: product_id
+            description: "Benzersiz ürün numarası"
+            tests:
+              - unique
+              - not_null
+          - name: product_category
+            description: "Ürün kategorisi"
+          - name: product_price
+            description: "Ürün fiyatı"
+
+models:
+  - name: stg_orders
+    description: "Temizlenmiş sipariş verileri"
+    columns:
+      - name: order_id
+        description: "Benzersiz sipariş numarası"
+        tests:
+          - unique
+          - not_null
+      - name: order_month
+        description: "Siparişin verildiği ay"
+  
+  - name: stg_products
+    description: "Temizlenmiş ürün verileri"
+    columns:
+      - name: product_id
+        description: "Benzersiz ürün numarası"
+        tests:
+          - unique
+          - not_null
+

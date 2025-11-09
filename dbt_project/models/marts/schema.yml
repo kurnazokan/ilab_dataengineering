@@ -1,0 +1,53 @@
+version: 2
+
+models:
+  - name: monthly_product_sales
+    description: "Her ürünün aylık satış performansı - İlk dbt modeli"
+    columns:
+      - name: product_id
+        description: "Ürün ID"
+        tests:
+          - not_null
+      - name: order_month
+        description: "Sipariş ayı (timestamp)"
+        tests:
+          - not_null
+      - name: year_month
+        description: "Yıl-Ay formatı (YYYY-MM)"
+      - name: total_orders
+        description: "Toplam sipariş sayısı"
+        tests:
+          - not_null
+      - name: total_sales_amount
+        description: "Toplam satış miktarı"
+        tests:
+          - not_null
+      - name: avg_order_amount
+        description: "Ortalama sipariş tutarı"
+
+  - name: monthly_category_performance
+    description: "Her ürün kategorisinin aylık performans analizi - İkinci dbt modeli"
+    columns:
+      - name: product_category
+        description: "Ürün kategorisi"
+        tests:
+          - not_null
+      - name: order_month
+        description: "Sipariş ayı (timestamp)"
+        tests:
+          - not_null
+      - name: year_month
+        description: "Yıl-Ay formatı (YYYY-MM)"
+      - name: unique_products_sold
+        description: "Satılan benzersiz ürün sayısı"
+      - name: total_orders
+        description: "Toplam sipariş sayısı"
+        tests:
+          - not_null
+      - name: total_sales_amount
+        description: "Toplam satış miktarı"
+        tests:
+          - not_null
+      - name: category_avg_order_value
+        description: "Kategori ortalama sipariş değeri"
+
