@@ -5,7 +5,7 @@ Bu repository, data engineering case çalışmalarını içerir.
 ## 📁 Klasör Yapısı
 
 ### case1/
-İlk case çalışması (boş - gelecek projeler için hazır)
+İlk case çalışması pdf dosyası ve diagram içerir.
 
 ### case2/
 **E-Commerce Analytics Pipeline (DBT + Airflow + Docker)**
